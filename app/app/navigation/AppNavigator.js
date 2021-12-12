@@ -16,7 +16,7 @@ const AppNavigator = () => {
 	useNotifications();
 
 	return (
-		<Tab.Navigator>
+		<Tab.Navigator screenOptions={{ headerShown: false }}>
 			<Tab.Screen
 				name="Feed"
 				component={FeedNavigator}
@@ -51,8 +51,8 @@ const AppNavigator = () => {
 				})}
 			/>
 			<Tab.Screen
-				name="Account"
-				component={AccountNavigator}
+				name="AccountNavigator"
+				component={AccountNavigator}		
 				options={{
 					tabBarIcon: ({ color, size }) => (
 						<MaterialCommunityIcons
@@ -61,6 +61,7 @@ const AppNavigator = () => {
 							size={size}
 						/>
 					),
+					tabBarLabel: 'Account',
 				}}
 			/>
 		</Tab.Navigator>

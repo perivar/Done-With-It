@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 const settings = {
 	// IPv4 Address (ipconfig):port
 	dev: {
-		apiUrl: "http://***.***.*.**:9000/api",
+		apiUrl: "http://localhost:9000/api",
 	},
 	staging: {
 		apiUrl: "http://***.***.*.**:9000/api",

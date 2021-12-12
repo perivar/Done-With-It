@@ -66,6 +66,8 @@ router.post(
 			description: req.body.description,
 		};
 
+		console.log('listing', listing);
+
 		listing.images = req.images.map((fileName) => ({ fileName: fileName }));
 		if (req.body.location) listing.location = JSON.parse(req.body.location);
 		if (req.user) listing.userId = req.user.userId;

@@ -51,14 +51,13 @@ const styles = StyleSheet.create({
 		color: colors.secondary,
 		fontWeight: "bold",
 		fontSize: 20,
-		marginVertical: 10,
 	},
 	title: {
 		fontSize: 24,
 		fontWeight: "500",
 	},
 	userContainer: {
-		marginVertical: 40,
+		marginVertical: 10,
 	},
 });
 

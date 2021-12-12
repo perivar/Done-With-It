@@ -1,6 +1,6 @@
 import React from "react";
 import { Alert, Keyboard } from "react-native";
-import { Notifications } from "expo";
+import * as Notifications from 'expo-notifications';
 import * as Yup from "yup";
 
 import { Form, FormField, SubmitButton } from "./forms";
@@ -22,9 +22,20 @@ function ContactSellerForm({ listing }) {
 
 		resetForm();
 
-		Notifications.presentLocalNotificationAsync({
+		Notifications.setNotificationHandler({
+			handleNotification: async () => ({
+			  shouldShowAlert: true,
+			  shouldPlaySound: false,
+			  shouldSetBadge: false,
+			}),
+		  });
+
+		Notifications.scheduleNotificationAsync({
+		content: {
 			title: "Awesome!",
 			body: "Your message was sent to the seller.",
+		},
+		trigger: null,
 		});
 	};
 
