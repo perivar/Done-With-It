@@ -1,15 +1,20 @@
 const Joi = require("joi");
 
 module.exports = (schema) => (req, res, next) => {
-	console.log('req.body', req.body);
-	
-	const joiSchema = Joi.object(schema);
-	const result = joiSchema.validate(req.body);
+  console.log("req.body:", req.body);
 
-	console.log('result', result);
+  if (req.body.location) {
+    req.body.location = JSON.parse(req.body.location);
+    console.log("fixed req.body location:", req.body);
+  }
 
-	if (result.error)
-		return res.status(400).send({ error: result.error.details[0].message });
+  const joiSchema = Joi.object(schema);
+  const result = joiSchema.validate(req.body);
 
-	next();
+  console.log("validation result:", result);
+
+  if (result.error)
+    return res.status(400).send({ error: result.error.details[0].message });
+
+  next();
 };
